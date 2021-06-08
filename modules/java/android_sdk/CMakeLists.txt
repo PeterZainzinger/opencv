@@ -148,7 +148,7 @@ set(AAR_FILE "${OPENCV_JAVA_DIR}/build/outputs/aar/opencv-release.aar")
 ocv_update(OPENCV_GRADLE_VERBOSE_OPTIONS "-i")
 add_custom_command(
     OUTPUT "${AAR_FILE}" "${OPENCV_DEPHELPER}/${the_module}_android"
-    COMMAND ./gradlew ${OPENCV_GRADLE_VERBOSE_OPTIONS} "opencv:assemble"
+    COMMAND pwd && ls -lah . && gradle ${OPENCV_GRADLE_VERBOSE_OPTIONS} "opencv:assemble"
     COMMAND ${CMAKE_COMMAND} -E touch "${OPENCV_DEPHELPER}/${the_module}_android"
     WORKING_DIRECTORY "${ANDROID_BUILD_BASE_DIR}"
     DEPENDS ${depends} ${the_module}
