@@ -5,6 +5,8 @@ def openCVersionName = "@OPENCV_VERSION@"
 def openCVersionCode = ((@OPENCV_VERSION_MAJOR@ * 100 + @OPENCV_VERSION_MINOR@) * 100 + @OPENCV_VERSION_PATCH@) * 10 + 0
 
 android {
+    ndkVersion "22.1.7171670"
+    buildToolsVersion = "30.0.3";
     compileSdkVersion @ANDROID_COMPILE_SDK_VERSION@
 
     defaultConfig {
@@ -49,6 +51,7 @@ android {
 
     externalNativeBuild {
         cmake {
+            version "3.19.7"
             path (project.projectDir.toString() + '/libcxx_helper/CMakeLists.txt')
         }
     }
