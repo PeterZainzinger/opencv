@@ -98,21 +98,9 @@ println "OpenCV: " +openCVersionName + " " + project.buildscript.sourceFile
 
 android {
     compileSdkVersion @ANDROID_COMPILE_SDK_VERSION@
+    ndkVersion "22.1.7171670"
+    buildToolsVersion "30.0.3"
 
-    defaultConfig {
-        minSdkVersion @ANDROID_MIN_SDK_VERSION@
-        targetSdkVersion @ANDROID_TARGET_SDK_VERSION@
-
-        versionCode openCVersionCode
-        versionName openCVersionName
-
-        externalNativeBuild {
-            cmake {
-                arguments "-DANDROID_STL=@ANDROID_STL@"
-                targets "opencv_jni_shared"
-            }
-        }
-    }
 
     buildTypes {
         debug {
@@ -141,6 +129,7 @@ android {
 
     externalNativeBuild {
         cmake {
+            version "3.19.7"
             path (project.projectDir.toString() + '/libcxx_helper/CMakeLists.txt')
         }
     }
