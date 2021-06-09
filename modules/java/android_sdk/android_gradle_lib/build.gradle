@@ -18,6 +18,7 @@ android {
 
         externalNativeBuild {
             cmake {
+                version "3.19.7"
                 arguments "-DANDROID_STL=@ANDROID_STL@"
                 targets "opencv_jni_shared"
             }
